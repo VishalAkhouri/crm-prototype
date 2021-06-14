@@ -114,6 +114,37 @@
           }
         }
       }
+    },
+    "api-server": {
+      "projectType": "library",
+      "root": "projects/api-server",
+      "sourceRoot": "projects/api-server/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/api-server/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/api-server/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/api-server/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/api-server/src/test.ts",
+            "tsConfig": "projects/api-server/tsconfig.spec.json",
+            "karmaConfig": "projects/api-server/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "crm-prototype"

@@ -20,4 +20,8 @@ export class CustomerStore {
   public saveCustomer(customer: CustomerModel) {
     this.store.dispatch(CustomerActions.saveCustomer({ customer }));
   }
+
+  public listCustomers() {
+    this.store.dispatch(CustomerActions.listCustomers());
+  }
 }

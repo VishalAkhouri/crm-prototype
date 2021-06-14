@@ -5,5 +5,6 @@ export interface CustomerModel {
   email?: string;
   phone?: string;
   address?: string,
+  fullName?: string;
   customerCode?: string;
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import moment from 'moment';
+
 import { CustomerModel } from '../models/customer.model';
 import { CustomerStore } from '../store/customer.store';
 import CustomerFormFieldsConfig from './config/form-fields.config';
@@ -14,6 +16,8 @@ export class AddCustomerComponent implements OnInit {
   public customerFormFieldsConfig = CustomerFormFieldsConfig
 
   public dateFormatRegex = '^[0-9]{2}[\/][0-9]{2}[\/][0-9]{4}$';
+
+  public isSubmitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,6 +58,7 @@ export class AddCustomerComponent implements OnInit {
   }
 
   public onSubmit() {
+    this.isSubmitted = true;
     if (this.customerForm.valid) {
       const formValues = this.customerForm.value as CustomerModel;
       const data: CustomerModel = this.createCustomerModel(formValues);
@@ -64,20 +69,26 @@ export class AddCustomerComponent implements OnInit {
     }
   }
 
-  private createCustomerModel(formValues: any) {
-    const customerCode = this.generateCustomerCode();
+  private createCustomerModel(formValues: any): CustomerModel {
+    const firstName = formValues[this.customerFormFieldsConfig.firstName.name];
+    const lastName = formValues[this.customerFormFieldsConfig.lastName.name];
+    const dob = formValues[this.customerFormFieldsConfig.dob.name];
+
+    const customerCode = this.generateCustomerCode(firstName, lastName, dob);
     return {
-      [this.customerFormFieldsConfig.firstName.name]: formValues[this.customerFormFieldsConfig.firstName.name],
-      [this.customerFormFieldsConfig.lastName.name]: formValues[this.customerFormFieldsConfig.lastName.name],
-      [this.customerFormFieldsConfig.dob.name]: formValues[this.customerFormFieldsConfig.dob.name],
+      [this.customerFormFieldsConfig.firstName.name]: firstName,
+      [this.customerFormFieldsConfig.lastName.name]: lastName,
+      [this.customerFormFieldsConfig.dob.name]: dob,
       [this.customerFormFieldsConfig.email.name]: formValues[this.customerFormFieldsConfig.email.name],
       [this.customerFormFieldsConfig.phone.name]: formValues[this.customerFormFieldsConfig.phone.name],
       [this.customerFormFieldsConfig.address.name]: formValues[this.customerFormFieldsConfig.address.name],
       [this.customerFormFieldsConfig.firstName.name]: formValues[this.customerFormFieldsConfig.firstName.name],
+      [this.customerFormFieldsConfig.fullName.name]: `${firstName} ${lastName}`,
+      [this.customerFormFieldsConfig.customerCode.name]: customerCode,
     }
   }
 
-  private generateCustomerCode() {
-
+  private generateCustomerCode(firstName: string, lastName: string, dob: string) {
+    return `${firstName.toLowerCase()}${lastName.toLowerCase()}${moment(dob).format('yyyyMMdd')}`
   }
 }

@@ -17,6 +17,7 @@ export class ListCustomerComponent implements OnInit, OnDestroy {
   constructor(private customerStore: CustomerStore) { }
 
   ngOnInit(): void {
+    this.customerStore.listCustomers();
     this.subscribeCustomersList()
   }
 

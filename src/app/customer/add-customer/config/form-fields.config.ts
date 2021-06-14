@@ -37,4 +37,16 @@ export default {
     maxlength: 15,
     options: [{ value: '', disabled: false }]
   },
+  fullName: {
+    name: 'fullName',
+    label: 'Full Name',
+    maxlength: 31,
+    options: [{ value: '', disabled: false }]
+  },
+  customerCode: {
+    name: 'customerCode',
+    label: 'Customer code',
+    maxlength: 50,
+    options: [{ value: '', disabled: false }]
+  },
 }

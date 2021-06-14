@@ -1,7 +1,8 @@
 import { CustomerModel } from "../models/customer.model";
 
 export interface CustomerState {
-  customersList: CustomerModel[]
+  customersList: CustomerModel[];
+  loading: boolean;
 }
 
 export interface CustomerFeatureState {
@@ -9,7 +10,8 @@ export interface CustomerFeatureState {
 }
 
 export const initialCustomerState: CustomerState = {
-  customersList: []
+  customersList: [],
+  loading: false
 }
 
 export const initialCustomerFeatureState: CustomerFeatureState = {

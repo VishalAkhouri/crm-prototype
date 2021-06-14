@@ -3,7 +3,10 @@
     <div>List Customer</div>
 
     <div *ngFor="let customer of filteredCustomersList; let i = index">
-      {{customer.firstName}}
+      <div>{{customer.customerCode}}</div>
+      <div>{{customer.fullName}}</div>
+      <div>{{customer.email}}</div>
+      <div>{{customer.dob}}</div>
     </div>
   </section>
 </app-main-container>
