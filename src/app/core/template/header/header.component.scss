@@ -1,0 +1,15 @@
+@import 'variables';
+
+:host {
+  display: block;
+}
+
+.header__container {
+  background-color: $primary;
+  color: $white;
+  width: 100%;
+  min-height: size(80);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

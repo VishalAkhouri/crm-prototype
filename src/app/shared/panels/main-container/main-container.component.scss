@@ -1,0 +1,11 @@
+@import 'variables';
+
+.main-container__section {
+  padding: 0 size(100);
+  height: 100%;
+  background-image: url('/assets/images/floating-cogs.svg');
+
+  &-content {
+    background-color: $white;
+  }
+}

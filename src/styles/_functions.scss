@@ -1,0 +1,5 @@
+// size method to convert to REM
+
+@function size($target, $context: $base-size) {
+  @return ($target / $context) * 1rem;
+}

@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "styles/variables";
+@import "styles/colors";
+
+html {
+  font-size: #{base-size}px;
+}
+
+body {
+  background-color: $white;
+  color: $primary;
+}
+
+input {
+  color: $primary;
+  padding: size(5);
+}

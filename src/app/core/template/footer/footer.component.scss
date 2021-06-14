@@ -1,0 +1,15 @@
+@import 'variables';
+
+:host {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: size(100);
+  background-color: $primary;
+  color: $white;
+}
+
+.app-footer {
+  padding: size(10);
+}

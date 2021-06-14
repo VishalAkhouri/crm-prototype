@@ -1,0 +1,9 @@
+<app-main-container>
+  <section class="add-customer__container">
+    <div>List Customer</div>
+
+    <div *ngFor="let customer of filteredCustomersList; let i = index">
+      {{customer.firstName}}
+    </div>
+  </section>
+</app-main-container>

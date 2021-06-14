@@ -1,0 +1,92 @@
+<app-main-container>
+  <section class="add-customer__container">
+    <div>Add Customer</div>
+    <form [formGroup]="customerForm">
+      <label class="add-customer__input-container">
+        <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.firstName.name">{{customerFormFieldsConfig.firstName.label}}</span>
+        <span class="add-customer__input-control">
+          <input type="text"
+            [id]="customerFormFieldsConfig.firstName.name"
+            [maxlength]="customerFormFieldsConfig.firstName.maxlength"
+            [formControlName]="customerFormFieldsConfig.firstName.name" />
+          <div *ngIf="isFormControlInvalid(customerFormFieldsConfig.firstName.name)">
+            <span class="add-customer__input-error" *ngIf="getFormValidationErrors(customerFormFieldsConfig.firstName.name)?.required">Please enter first name</span>
+          </div>
+        </span>
+      </label>
+
+      <label class="add-customer__input-container">
+        <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.lastName.name">{{customerFormFieldsConfig.lastName.label}}</span>
+        <span class="add-customer__input-control">
+          <input type="text"
+            [id]="customerFormFieldsConfig.lastName.name"
+            [maxlength]="customerFormFieldsConfig.lastName.maxlength"
+            [formControlName]="customerFormFieldsConfig.lastName.name" />
+            <div *ngIf="isFormControlInvalid(customerFormFieldsConfig.lastName.name)">
+              <span class="add-customer__input-error" *ngIf="getFormValidationErrors(customerFormFieldsConfig.lastName.name)?.required">Please enter last name</span>
+            </div>
+        </span>
+      </label>
+
+      <label class="add-customer__input-container">
+        <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.dob.name">{{customerFormFieldsConfig.dob.label}}</span>
+        <span class="add-customer__input-control">
+          <input type="text"
+            [id]="customerFormFieldsConfig.dob.name"
+            [maxlength]="customerFormFieldsConfig.dob.maxlength"
+            [formControlName]="customerFormFieldsConfig.dob.name" />
+            <div *ngIf="isFormControlInvalid(customerFormFieldsConfig.dob.name)">
+              <span class="add-customer__input-error" *ngIf="getFormValidationErrors(customerFormFieldsConfig.dob.name)?.required">Please enter data of birth</span>
+              <span class="add-customer__input-error" *ngIf="getFormValidationErrors(customerFormFieldsConfig.dob.name)?.pattern">Enter data of birth in format: dd/mm/yyyy</span>
+            </div>
+        </span>
+
+      </label>
+
+      <label class="add-customer__input-container">
+        <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.email.name">{{customerFormFieldsConfig.email.label}}</span>
+        <span class="add-customer__input-control">
+          <input type="text"
+            [id]="customerFormFieldsConfig.email.name"
+            [maxlength]="customerFormFieldsConfig.email.maxlength"
+            [formControlName]="customerFormFieldsConfig.email.name" />
+            <div *ngIf="isFormControlInvalid(customerFormFieldsConfig.email.name)">
+              <span class="add-customer__input-error" *ngIf="getFormValidationErrors(customerFormFieldsConfig.email.name)?.required">Please enter email</span>
+              <span class="add-customer__input-error" *ngIf="getFormValidationErrors(customerFormFieldsConfig.email.name)?.email">Please enter valid email address</span>
+            </div>
+        </span>
+
+      </label>
+
+      <label class="add-customer__input-container">
+        <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.phone.name">{{customerFormFieldsConfig.phone.label}}</span>
+        <span class="add-customer__input-control">
+          <input type="text"
+            [id]="customerFormFieldsConfig.phone.name"
+            [maxlength]="customerFormFieldsConfig.phone.maxlength"
+            [formControlName]="customerFormFieldsConfig.phone.name" />
+            <div *ngIf="isFormControlInvalid(customerFormFieldsConfig.phone.name)">
+              <span class="add-customer__input-error" *ngIf="getFormValidationErrors(customerFormFieldsConfig.phone.name)?.required">Please enter phone number</span>
+            </div>
+        </span>
+      </label>
+
+      <label class="add-customer__input-container">
+        <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.address.name">{{customerFormFieldsConfig.address.label}}</span>
+        <span class="add-customer__input-control">
+          <input type="text"
+            [id]="customerFormFieldsConfig.address.name"
+            [maxlength]="customerFormFieldsConfig.address.maxlength"
+            [formControlName]="customerFormFieldsConfig.address.name" />
+            <div *ngIf="isFormControlInvalid(customerFormFieldsConfig.address.name)">
+              <span class="add-customer__input-error" *ngIf="getFormValidationErrors(customerFormFieldsConfig.address.name)?.required">Please enter address</span>
+            </div>
+        </span>
+      </label>
+
+      <div>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      </div>
+    </form>
+  </section>
+</app-main-container>
