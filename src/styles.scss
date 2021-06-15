@@ -2,6 +2,9 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "styles/variables";
 @import "styles/colors";
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
 
 html {
   font-size: #{base-size}px;
@@ -10,6 +13,7 @@ html {
 body {
   background-color: $white;
   color: $primary;
+  font-family: Calibri, sans-serif;
 }
 
 input {

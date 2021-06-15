@@ -89,6 +89,6 @@ export class AddCustomerComponent implements OnInit {
   }
 
   private generateCustomerCode(firstName: string, lastName: string, dob: string) {
-    return `${firstName.toLowerCase()}${lastName.toLowerCase()}${moment(dob).format('yyyyMMdd')}`
+    return `${firstName.toLowerCase()}${lastName.toLowerCase()}${moment(dob).format('YYYYMMDD')}`
   }
 }

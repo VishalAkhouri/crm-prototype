@@ -5,11 +5,26 @@
 }
 
 .header__container {
-  background-color: $primary;
+  background-color: #caf0f8;
   color: $white;
   width: 100%;
-  min-height: size(80);
+  min-height: size(60);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  > div {
+    padding: size(5) size(20);
+    font-size: size(40);
+    color: #03045e;
+
+    > img {
+      margin-right: size(30);
+    }
+
+    > span:first-of-type {
+      font-size: size(60);
+      margin-right: size(10);
+    }
+  }
 }

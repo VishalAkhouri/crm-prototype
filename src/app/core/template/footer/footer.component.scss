@@ -5,11 +5,17 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  min-height: size(100);
-  background-color: $primary;
+  min-height: $footerHeight;
+  background-color: #0077b6;
   color: $white;
 }
 
 .app-footer {
   padding: size(10);
+
+
+  > div {
+    opacity: 70%;
+    text-align: center;
+  }
 }

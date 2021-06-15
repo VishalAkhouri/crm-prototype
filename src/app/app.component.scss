@@ -1,1 +1,16 @@
 @import 'colors';
+@import 'variables';
+
+.app__container {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.app-content__wrappoer {
+  padding-bottom: $footerHeight;
+}
+
+.main-content {
+  // min-height: 70vh;
+}

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ListCustomerComponent } from './list-customer/list-customer.component';
@@ -21,6 +22,7 @@ import { CustomerStoreModule } from './store/customer-store.module';
     CustomerStoreModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxDatatableModule,
     PanelsModule
   ]
 })

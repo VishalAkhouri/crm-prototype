@@ -13,6 +13,8 @@ export class ListCustomerComponent implements OnInit, OnDestroy {
   public subscription = new Subscription();
   public customersList$ = this.customerStore.customersList$;
   public filteredCustomersList: CustomerModel[] = []
+  public columns = [{ prop: 'customerCode' }, { name: 'fullName' }, { name: 'email' }, { name: 'dob' }];
+  public filterTerm: string = '';
 
   constructor(private customerStore: CustomerStore) { }
 
@@ -23,6 +25,10 @@ export class ListCustomerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  public handleFilterTextChange() {
+
   }
 
   private subscribeCustomersList() {

@@ -1,11 +1,12 @@
 <app-main-container>
   <section class="add-customer__container">
-    <div>Add Customer</div>
+    <header>Add Customer</header>
+
     <form [formGroup]="customerForm">
       <label class="add-customer__input-container">
         <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.firstName.name">{{customerFormFieldsConfig.firstName.label}}</span>
         <span class="add-customer__input-control">
-          <input type="text"
+          <input type="text" class="form-control"
             [id]="customerFormFieldsConfig.firstName.name"
             [maxlength]="customerFormFieldsConfig.firstName.maxlength"
             [formControlName]="customerFormFieldsConfig.firstName.name" />
@@ -18,7 +19,7 @@
       <label class="add-customer__input-container">
         <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.lastName.name">{{customerFormFieldsConfig.lastName.label}}</span>
         <span class="add-customer__input-control">
-          <input type="text"
+          <input type="text" class="form-control"
             [id]="customerFormFieldsConfig.lastName.name"
             [maxlength]="customerFormFieldsConfig.lastName.maxlength"
             [formControlName]="customerFormFieldsConfig.lastName.name" />
@@ -31,7 +32,7 @@
       <label class="add-customer__input-container">
         <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.dob.name">{{customerFormFieldsConfig.dob.label}}</span>
         <span class="add-customer__input-control">
-          <input type="text"
+          <input type="text" class="form-control"
             [id]="customerFormFieldsConfig.dob.name"
             [maxlength]="customerFormFieldsConfig.dob.maxlength"
             [formControlName]="customerFormFieldsConfig.dob.name" />
@@ -46,7 +47,7 @@
       <label class="add-customer__input-container">
         <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.email.name">{{customerFormFieldsConfig.email.label}}</span>
         <span class="add-customer__input-control">
-          <input type="text"
+          <input type="text" class="form-control"
             [id]="customerFormFieldsConfig.email.name"
             [maxlength]="customerFormFieldsConfig.email.maxlength"
             [formControlName]="customerFormFieldsConfig.email.name" />
@@ -61,7 +62,7 @@
       <label class="add-customer__input-container">
         <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.phone.name">{{customerFormFieldsConfig.phone.label}}</span>
         <span class="add-customer__input-control">
-          <input type="text"
+          <input type="text" class="form-control"
             [id]="customerFormFieldsConfig.phone.name"
             [maxlength]="customerFormFieldsConfig.phone.maxlength"
             [formControlName]="customerFormFieldsConfig.phone.name" />
@@ -74,7 +75,7 @@
       <label class="add-customer__input-container">
         <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.address.name">{{customerFormFieldsConfig.address.label}}</span>
         <span class="add-customer__input-control">
-          <input type="text"
+          <input type="text" class="form-control"
             [id]="customerFormFieldsConfig.address.name"
             [maxlength]="customerFormFieldsConfig.address.maxlength"
             [formControlName]="customerFormFieldsConfig.address.name" />

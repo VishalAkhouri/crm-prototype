@@ -1,12 +1,34 @@
 <app-main-container>
   <section class="add-customer__container">
-    <div>List Customer</div>
-
-    <div *ngFor="let customer of filteredCustomersList; let i = index">
-      <div>{{customer.customerCode}}</div>
-      <div>{{customer.fullName}}</div>
-      <div>{{customer.email}}</div>
-      <div>{{customer.dob}}</div>
+    <div class="add-customer__header-content">
+      <header>Customer's list</header>
+      <input type="text" class="form-control"
+            id="filter"
+            maxlength="255"
+            placeholder="enter filter data..."
+            [(ngModel)]="filterTerm"
+            (input)="handleFilterTextChange()" />
     </div>
+
+    <ng-container *ngIf="filteredCustomersList?.length; else NoDataFound">
+      <ngx-datatable
+        class="material"
+        [rows]="filteredCustomersList"
+        columnMode="force"
+        [headerHeight]="50"
+        [footerHeight]="0"
+        [rowHeight]="50"
+        [scrollbarV]="true"
+        [scrollbarH]="true">
+        <ngx-datatable-column name="Customer Code" [width]="300"></ngx-datatable-column>
+        <ngx-datatable-column name="Full Name"></ngx-datatable-column>
+        <ngx-datatable-column name="Email" [width]="300"></ngx-datatable-column>
+        <ngx-datatable-column name="Date of Birth" [width]="300"></ngx-datatable-column>
+      </ngx-datatable>
+    </ng-container>
+
+    <ng-template #NoDataFound>
+      <div>There is no data to show...</div>
+    </ng-template>
   </section>
 </app-main-container>

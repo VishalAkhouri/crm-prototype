@@ -1,19 +1,51 @@
 @import 'variables';
 
-ul {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
+.menu-links__container {
+  height: size(50);
+  background-color: #e9ecef; // #48cae4
+  box-shadow: 0 10px 6px -6px #777;
+  padding: size(14) size(200);
 
-  li {
-    margin-right: size(10);
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
 
-    &:hover {
-      background-color: gray;
+    li {
+      margin-right: size(50);
+      padding-bottom: size(5);
+      transition: border-bottom 1s ease-out 100ms;
+      animation: shake 500ms ease-in-out forwards;
+
+      &:hover {
+        border-bottom: 2px solid black;
+      }
+
+      a {
+        color: #777;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .active {
+    border-bottom: 2px solid red;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: rotate(2deg);
+    }
+    50% {
+     transform: rotate(-3deg);
+    }
+    70% {
+      transform: rotate(3deg);
     }
 
-    a {
-      text-decoration: none;
+    100% {
+      transform: rotate(0deg);
     }
   }
 }
+

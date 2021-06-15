@@ -1,0 +1,32 @@
+@import 'variables';
+
+.ngx-datatable.material {
+  background: #fff;
+  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);
+}
+
+.ngx-datatable.scroll-vertical {
+  height: 50vh;
+}
+
+.add-customer {
+  &__container {
+    header {
+      text-align: left;
+      font-size: size(30);
+      font-weight: bold;
+      margin-bottom: size(30);
+    }
+  }
+
+  &__header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    > input {
+      width: size(300);
+      height: size(40);
+    }
+  }
+}
