@@ -46,3 +46,7 @@ Thumbs.db
 
 # library project file
 projects/api-server/node_modules
+
+# cypress
+cypress/videos
+cypress/screenshots
