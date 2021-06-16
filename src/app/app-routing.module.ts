@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddCustomerComponent } from './customer/add-customer/add-customer.component';
-import { ListCustomerComponent } from './customer/list-customer/list-customer.component';
 
 const routes: Routes = [
   {
@@ -12,8 +10,7 @@ const routes: Routes = [
         import('./customer/customer.module').then((m) => m.CustomerModule)
     }]
   },
-  // { path: 'customer/add', component: AddCustomerComponent },
-  // { path: 'customer/list', component: ListCustomerComponent }
+  { path: '', redirectTo: 'customer/add', pathMatch: 'full'}
 ];
 
 @NgModule({

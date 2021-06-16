@@ -118,6 +118,37 @@
             },
             "scripts": []
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "crm-prototype:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "crm-prototype:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "crm-prototype:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "crm-prototype:serve:production"
+            }
+          }
         }
       }
     },
@@ -148,6 +179,39 @@
             "main": "projects/api-server/src/test.ts",
             "tsConfig": "projects/api-server/tsconfig.spec.json",
             "karmaConfig": "projects/api-server/karma.conf.js"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "api-server:serve",
+            "configFile": "projects/api-server/cypress.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "api-server:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/api-server/cypress.json"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "api-server:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "api-server:serve:production"
+            }
           }
         }
       }
