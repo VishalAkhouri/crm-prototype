@@ -1,27 +1,74 @@
-# CrmPrototype
+# CRM Prototype
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+This is a sample project created in Angular 12 with Express and MongoDb backend
 
-## Development server
+## Structure of the project:
+- the main angular project was generated using angular/cli v12.0.4
+- added api-server code (nodeJs + express) as a library (temporarily) `/projects/api-server`
+- api server connects to MongoDB database
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install and start MongoDB:
+- Need to first start MongoDB database 
+- In case mongodb is not install, install docker mongodb
+```
+docker pull mongo
+```
+- refer to [docker mongo](https://hub.docker.com/_/mongo) to start mongo database docker image
+- note the url on which the mongodb has started --- example: localhost:27017');
 
-## Code scaffolding
+## Starting API Server:
+- change directory to /projects/ : `cd projects`
+- run `npm install` from inside /projects
+- start api-server
+```
+npm start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+if the api-server starts successfully, the following lines will appear in the console log
+```
+Express server running on port 5000
+mongoDb connection was successful!
+```
 
-## Build
+## Starting angular project:
+- from the root directory, start the application
+```
+npm start
+```
+- application can now be locally accessed at url:
+```
+http://localhost:4200/
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Starting angular project with production environement config:
+```
+npm run start-prod
+````
 
-## Running unit tests
+## Unit tests (Jasmine + Karma)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm run test
+```
 
-## Running end-to-end tests
+## End to end tests (Cypress)
+```
+npm run cypress:run
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Choices of technology:
+ - Front end framework: Angular 12
+ - Bootstrap 5 + Custom SCSS
+ - Statement management: NgRx (Redux) + RxJs
+ - Unit testing - Jasmine + Karma
+ - E2E testing - Cypress
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The following needs to be implemented and will be factored in next sprint:
+
+- Unit test coverage for all the included functionality
+- E2E tests - create a new environment file for e2e tests to connect to a different e2e database
+- filtering based on last name
+
+
+
