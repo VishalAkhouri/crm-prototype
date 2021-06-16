@@ -2,6 +2,8 @@
 
 This is a sample project created in Angular 12 with Express and MongoDb backend
 
+Github repository: [https://github.com/VishalAkhouri/crm-prototype]
+
 ## Structure of the project:
 - the main angular project was generated using angular/cli v12.0.4
 - added api-server code (nodeJs + express) as a library (temporarily) `/projects/api-server`
@@ -9,11 +11,7 @@ This is a sample project created in Angular 12 with Express and MongoDb backend
 
 ## Install and start MongoDB:
 - Need to first start MongoDB database 
-- In case mongodb is not install, install docker mongodb
-```
-docker pull mongo
-```
-- refer to [docker mongo](https://hub.docker.com/_/mongo) to start mongo database docker image
+- In case mongodb is not install, refer to [docker mongo](https://hub.docker.com/_/mongo) to install and start mongo database docker image
 - note the url on which the mongodb has started --- example: localhost:27017');
 
 ## Starting API Server:
@@ -21,7 +19,11 @@ docker pull mongo
 - run `npm install` from inside /projects
 - start api-server
 ```
-npm start
+npm start (uses the default mongodb url as: localhost:27017)
+
+or 
+
+npm start --dburl=<mongodb-url-to-connect> (use format uri:port )
 ```
 
 if the api-server starts successfully, the following lines will appear in the console log
@@ -63,12 +65,16 @@ npm run cypress:run
  - Unit testing - Jasmine + Karma
  - E2E testing - Cypress
 
-
-The following needs to be implemented and will be factored in next sprint:
+## The following needs to be implemented and will be factored in next iterations:
 
 - Unit test coverage for all the included functionality
 - E2E tests - create a new environment file for e2e tests to connect to a different e2e database
-- filtering based on last name
+- Enhancements to list data table
+  - Show details panel on clicking email address shown as link
+  - filtering based on last name
+- Add a notification common component
 
+## Screenshots
 
+![Add Customer](src/assets/images/add-customer.png?raw=true "Add Customer")
 

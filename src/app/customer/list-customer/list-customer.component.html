@@ -5,8 +5,8 @@
       <input type="text" class="form-control"
             id="filter"
             maxlength="255"
-            placeholder="enter filter data..."
-            [(ngModel)]="filterTerm"
+            placeholder="enter search data..."
+            [(ngModel)]="searchTerm"
             (input)="handleFilterTextChange()" />
     </div>
 
@@ -20,10 +20,10 @@
         [rowHeight]="50"
         [scrollbarV]="true"
         [scrollbarH]="true">
-        <ngx-datatable-column name="Customer Code" [width]="300"></ngx-datatable-column>
         <ngx-datatable-column name="Full Name"></ngx-datatable-column>
-        <ngx-datatable-column name="Email" [width]="300"></ngx-datatable-column>
-        <ngx-datatable-column name="Date of Birth" [width]="300"></ngx-datatable-column>
+        <ngx-datatable-column name="Email" [width]="200"></ngx-datatable-column>
+        <ngx-datatable-column name="DOB" [width]="100"></ngx-datatable-column>
+        <ngx-datatable-column name="Customer Code" [width]="100"></ngx-datatable-column>
       </ngx-datatable>
     </ng-container>
 

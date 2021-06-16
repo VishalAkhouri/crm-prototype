@@ -7,11 +7,12 @@ import Customer from './models/data/customer';
 
 const app = express();
 const router = express.Router();
+const dburl = process.env.npm_config_url || 'localhost:27017';
 
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/customer');
+mongoose.connect(`mongodb://${dburl}/customer`);
 
 const connection = mongoose.connection;
 

@@ -9,6 +9,24 @@ const getCustomersList = createSelector(
   ({ customersList }) => customersList
 );
 
+const getLoading = createSelector(
+  getCustomerState,
+  ({ loading }) => loading
+);
+
+const getNotifications = createSelector(
+  getCustomerState,
+  ({ notifications }) => notifications
+);
+
+const getSaveComplete = createSelector(
+  getCustomerState,
+  ({ saveComplete }) => saveComplete
+);
+
 export const CustomerSelectors = {
-  getCustomersList
+  getCustomersList,
+  getLoading,
+  getNotifications,
+  getSaveComplete,
 };

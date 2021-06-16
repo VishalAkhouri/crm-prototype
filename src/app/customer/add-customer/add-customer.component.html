@@ -3,6 +3,14 @@
     <header>Add Customer</header>
 
     <div class="add-customer__content">
+      <div class="alert alert-danger add-customer__message" role="alert" *ngIf="isSubmitted && customerForm.invalid">
+        Form is invalid
+      </div>
+
+      <div class="alert alert-success add-customer__message" role="alert" *ngIf="saveComplete$ | async">
+        Data saved successfully
+      </div>
+
       <form [formGroup]="customerForm">
         <label class="add-customer__input-container">
           <span class="add-customer__input-label" [attr.for]="customerFormFieldsConfig.firstName.name">{{customerFormFieldsConfig.firstName.label}}</span>
@@ -88,7 +96,6 @@
 
         <div>
           <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
-          <span *ngIf="isSubmitted && customerForm.invalid">Form invalid!</span>
         </div>
       </form>
     </div>

@@ -1,9 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, switchMap } from 'rxjs/operators';
+import { NotificationType } from "src/app/shared/constants/notification-type.const";
 import { CustomerService } from "../services/customer.service";
 
 import {
+  addNotification,
   listCustomers,
   listCustomersFailure,
   listCustomersSuccess,
@@ -19,7 +21,16 @@ export class CustomerEffects {
         const customer = payload?.customer || {};
         return this.service.postCustomer(customer).pipe(
           switchMap((customer) => {
-            return [saveCustomerSuccess({ customer })]
+            return [
+              saveCustomerSuccess({ customer }),
+              addNotification({
+                notification: {
+                  code: 'saveSuccess',
+                  message: 'Save Completed successfully!',
+                  type: NotificationType.Success
+                }
+              })
+            ]
           }),
           catchError((error) => [saveCustomerFailure(error)])
         )

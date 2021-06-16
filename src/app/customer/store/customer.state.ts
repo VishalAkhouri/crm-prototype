@@ -1,8 +1,11 @@
+import { NotificationModel } from "src/app/shared/models/notification.model";
 import { CustomerModel } from "../models/customer.model";
 
 export interface CustomerState {
   customersList: CustomerModel[];
   loading: boolean;
+  notifications: NotificationModel[],
+  saveComplete: boolean
 }
 
 export interface CustomerFeatureState {
@@ -11,7 +14,9 @@ export interface CustomerFeatureState {
 
 export const initialCustomerState: CustomerState = {
   customersList: [],
-  loading: false
+  loading: false,
+  notifications: [],
+  saveComplete: false
 }
 
 export const initialCustomerFeatureState: CustomerFeatureState = {

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import moment from 'moment';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 import { CustomerModel } from '../models/customer.model';
 import { CustomerStore } from '../store/customer.store';
@@ -11,9 +13,11 @@ import CustomerFormFieldsConfig from './config/form-fields.config';
   templateUrl: './add-customer.component.html',
   styleUrls: ['./add-customer.component.scss']
 })
-export class AddCustomerComponent implements OnInit {
+export class AddCustomerComponent implements OnInit, OnDestroy {
   public customerForm: FormGroup;
-  public customerFormFieldsConfig = CustomerFormFieldsConfig
+  public customerFormFieldsConfig = CustomerFormFieldsConfig;
+  public subscription = new Subscription();
+  public saveComplete$ = this.customerStore.saveComplete$;
 
   public dateFormatRegex = '^[0-9]{2}[\/][0-9]{2}[\/][0-9]{4}$';
 
@@ -46,6 +50,18 @@ export class AddCustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.subscription.add(this.saveComplete$.pipe(
+      filter(Boolean)
+    ).subscribe(saveComplete => {
+      if (saveComplete && this.customerForm) {
+        this.customerForm.reset();
+        this.isSubmitted = false;
+      }
+    }));
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 
   public isFormControlInvalid(formControlName: string) {
@@ -89,6 +105,6 @@ export class AddCustomerComponent implements OnInit {
   }
 
   private generateCustomerCode(firstName: string, lastName: string, dob: string) {
-    return `${firstName.toLowerCase()}${lastName.toLowerCase()}${moment(dob).format('YYYYMMDD')}`
+    return `${firstName.toLowerCase()}${lastName.toLowerCase()}${moment(dob).format('YYYYMMDD')}`;
   }
 }

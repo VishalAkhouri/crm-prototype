@@ -13,9 +13,9 @@ import { CustomerStore } from '../store/customer.store';
 export class ListCustomerComponent implements OnInit, OnDestroy {
   public subscription = new Subscription();
   public customersList$ = this.customerStore.customersList$;
-  public filteredCustomersList: CustomerModel[] = []
-  public columns = [{ prop: 'customerCode' }, { name: 'fullName' }, { name: 'email' }, { name: 'dob' }];
-  public filterTerm: string = '';
+  public originalCustomersList: CustomerModel[] = [];
+  public filteredCustomersList: CustomerModel[] = [];
+  public searchTerm: string = '';
 
   constructor(private customerStore: CustomerStore) { }
 
@@ -29,13 +29,20 @@ export class ListCustomerComponent implements OnInit, OnDestroy {
   }
 
   public handleFilterTextChange() {
-
+    console.log(this.searchTerm);
+    this.filteredCustomersList = this.originalCustomersList.filter(customer => {
+      return customer.customerCode?.toLocaleLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        customer.fullName?.toLocaleLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        customer.email?.toLocaleLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        customer.dob?.toLocaleLowerCase().includes(this.searchTerm.toLowerCase());
+    })
   }
 
   private subscribeCustomersList() {
     this.subscription.add(this.customersList$.pipe(
       filter(Boolean)
     ).subscribe((customersList: any) => {
+      this.originalCustomersList = customersList;
       this.filteredCustomersList = customersList;
     }))
   }

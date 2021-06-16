@@ -1,4 +1,5 @@
 import { createAction } from "@ngrx/store";
+import { NotificationModel } from "src/app/shared/models/notification.model";
 import { CustomerModel } from "../models/customer.model";
 
 export const saveCustomer = createAction(
@@ -29,4 +30,14 @@ export const listCustomersSuccess = createAction(
 export const listCustomersFailure = createAction(
   '[Customer] list customer failure',
   (payload?: { error: Error}) => ({ payload })
+);
+
+export const addNotification = createAction(
+  '[Customer] add Notification',
+  (payload?: { notification: NotificationModel }) => ({ payload })
+);
+
+export const clearNotifications = createAction(
+  '[Customer] clear Notifications',
+  (payload?: {}) => ({ payload })
 );

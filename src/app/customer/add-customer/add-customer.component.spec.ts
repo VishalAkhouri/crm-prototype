@@ -8,6 +8,7 @@ import { AddCustomerComponent } from './add-customer.component';
 
 class MockCustomerStore {
   public customersList$ = of([]);
+  public saveComplete$ = of(false);
   public listCustomers() {}
   public saveCustomer() {}
 }
