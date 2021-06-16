@@ -42,7 +42,7 @@ npm start
 http://localhost:4200/
 ```
 
-## Starting angular project with production environement config:
+## Starting angular project with production environment config:
 ```
 npm run start-prod
 ````
@@ -61,7 +61,7 @@ npm run cypress:run
 ## Choices of technology:
  - Front end framework: Angular 12
  - Bootstrap 5 + Custom SCSS
- - Statement management: NgRx (Redux) + RxJs
+ - State management: NgRx (Redux) + RxJs
  - Unit testing - Jasmine + Karma
  - E2E testing - Cypress
 
@@ -72,7 +72,7 @@ npm run cypress:run
 - Enhancements to list data table
   - Show details panel on clicking email address shown as link
   - filtering based on last name
-- Add a notification common component
+- Add a notification panel common component
 
 ## Screenshots
 
